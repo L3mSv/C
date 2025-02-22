@@ -1,3 +1,7 @@
+/*
+Modifique a função desenvolvida na questão 3 para remover o último elemento da lista encadeada.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

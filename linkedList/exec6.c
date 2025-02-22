@@ -1,3 +1,7 @@
+/*
+Desenvolva uma função para inverter a ordem dos elementos da lista encadeada.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

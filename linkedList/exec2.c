@@ -1,3 +1,7 @@
+/*
+Escreva uma função que remova o primeiro elemento da lista encadeada.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

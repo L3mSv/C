@@ -1,37 +1,31 @@
 /*
-Desenvolva uma função para encontrar o maior valor presente na lista encadeada
+Implemente uma função para encontrar o penúltimo elemento da lista encadeada.
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 
 struct Node{
-    int value; 
+    int value;
     struct Node* next;
 };
 typedef struct Node Node;
 
-
 Node* createNode(int value);
-void insertElementAtFirst(Node** head, int value);
+void InsertElementAtFirst(Node** head, int value);
+int LastButOneElement(Node** head);
 void print(Node* head);
-int highestValue(Node** head);
-
-
 
 int main(){
 
     Node* head = NULL;
 
-    insertElementAtFirst(&head, 10);
-    insertElementAtFirst(&head, 3);
-    insertElementAtFirst(&head, 142);
-    insertElementAtFirst(&head, 432);
-    insertElementAtFirst(&head, 23);
+    InsertElementAtFirst(&head, 10);
+    InsertElementAtFirst(&head, 30);
+    InsertElementAtFirst(&head, 20);
+    InsertElementAtFirst(&head, 420);
     print(head);
-
-    printf("\nHighest Value: %d", highestValue(&head));
+    printf("\n%d", LastButOneElement(&head));
 
     return 0;
 }
@@ -43,7 +37,7 @@ Node* createNode(int value){
     return newNode;
 }
 
-void insertElementAtFirst(Node** head, int value){
+void InsertElementAtFirst(Node** head, int value){
     Node* newNode = createNode(value);
     newNode->next = *head;
     *head = newNode;
@@ -62,18 +56,23 @@ void print(Node* head){
     printf("%d -> NULL", temp->value);
 }
 
-int highestValue(Node** head){
-    if(*head == NULL){
-        printf("List is empty!");
-        return 0;
-    }
+int LastButOneElement(Node** head){
+    int lastButOne;
     Node* temp = *head;
-    int highestValue = INT_MIN;
+    int position = 0;
     while(temp->next != NULL){
-        if(temp->value >= highestValue)
-            highestValue = temp->value;
+        position++;
         temp = temp->next;
-    }   
-    return highestValue;
+    }
+    position++;
+    printf("\n%d\n", position);
+    Node* temp2 = *head;
+    int counter = 0;
+    while(temp2->next != NULL){
+        counter++;
+        lastButOne = temp2->value;
+        temp2 = temp2->next;
+    }
+    printf("%d\n", counter);
+    return lastButOne;
 }
-
