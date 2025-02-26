@@ -5,6 +5,8 @@ Escreva uma função para intercalar duas listas encadeadas em uma única lista.
 #include <stdio.h>
 #include <stdlib.h>
 
+//! TERMINAR 
+
 struct Node{
     int value;
     struct Node* next;
