@@ -20,17 +20,19 @@ struct Aluno
 typedef struct Aluno aluno;
 
 void preencheRegistro(aluno* aluno){
-    printf("Informe o nome: ");
-    scanf("%s", aluno->nome[50]);
+    char temp_nome[50];
+    printf("\nInforme o nome: ");
+    scanf("%s", &temp_nome);
+    strcpy(aluno->nome, temp_nome);
 
     printf("Informe o numero da turma:");
-    scanf("%d", aluno->turma);
+    scanf("%d", &aluno->turma);
 
     printf("Informe o CPF: ");
-    scanf("%d", aluno->cpf);
+    scanf("%d", &aluno->cpf);
 
     printf("Informe a nota: ");
-    scanf("%f", aluno->nota);
+    scanf("%f", &aluno->nota);
 }
 
 int main(){
@@ -44,7 +46,15 @@ int main(){
     aluno registroAluno[quant_alunos];
 
     for(int i = 0; i < quant_alunos; i++){
-        preencheRegistro(registroAluno);
+        preencheRegistro((registroAluno + i));
+        fprintf(fptr, "\n%s       %d      %d      %.2f", (registroAluno + i)->nome, (registroAluno + i)->turma, (registroAluno + i)->cpf, (registroAluno + i)->nota);
+    }
+
+    for(int i = 0; i < quant_alunos; i++){
+        printf("\nCPF: %d\n", (registroAluno + i)->cpf);
+        printf("Nome: %s\n", (registroAluno + i)->nome);
+        printf("Turma: %d\n", (registroAluno + i)->turma);
+        printf("Nota em PC: %.2f\n", (registroAluno + i)->nota);
     }
     return 0;
 }
