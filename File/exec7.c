@@ -1,10 +1,8 @@
 /*
-Desenvolva um programa que leia o arquivo registro_alunos.txt e armazene
-as informações em um vetor de uma struct Alunos composta pelos campos cpf,
-turma, nome e nota. Após, imprima no terminal todos os elementos do vetor criado
-no formato “CPF: <cpf>\nNome: <nome>\nTurma: <turma>\nNota em PC:
-<nota>”.
+Modifique a struct do exercício anterior de forma a conter um campo situação com valor 1 para aqueles alunos que tiraram média superior ou igual 7,0 e 0 para alunos com média abaixo de 7,0. Após, crie um arquivo de saída chamado divulgação_resultados.txt contendo o nome de cada aluno, sua nota e a sua
+situação (aprovado/reprovado).
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,6 +14,7 @@ struct Aluno
     int turma;
     char nome[50];
     float nota;
+    int situacao;
 };
 typedef struct Aluno aluno;
 
@@ -35,9 +34,18 @@ void preencheRegistro(aluno* aluno){
     scanf("%f", &aluno->nota);
 }
 
+void resultadoSituacao(aluno* aluno, FILE** fptr2){
+    if(aluno->situacao  == 0)
+        fprintf(*fptr2, "Nome:      %s      Situacao:   Aprovado\n", aluno->nome);
+    else
+        fprintf(*fptr2, "Nome:      %s       Situacao:  Reprovado\n", aluno->nome);
+}
+
 int main(){
     FILE* fptr;
+    FILE* fptr2;
     fptr = fopen("registro_alunos.txt", "w");
+    fptr2 = fopen("divulgacao_resultados.txt", "w");
 
     int quant_alunos;
     printf("Informe a quantidade de alunos: ");
@@ -54,9 +62,11 @@ int main(){
         printf("\nCPF: %d\n", (registroAluno + i)->cpf);
         printf("Nome: %s\n", (registroAluno + i)->nome);
         printf("Turma: %d\n", (registroAluno + i)->turma);
-        printf("Nota em PC: %.2f\n", (registroAluno + i)->nota);
+        printf("Nota em PC: %.2f\n", (registroAluno + i )->nota);
+        resultadoSituacao(registroAluno, &fptr2);
     }
 
     fclose(fptr);
+    fclose(fptr2);
     return 0;
 }
