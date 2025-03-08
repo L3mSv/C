@@ -1,18 +1,42 @@
 {
     "tasks": [
         {
+<<<<<<< HEAD
             "type": "shell",
             "label": "Run this C Program",
             "command": "C:\\MSYS2\\mingw64\\bin\\gcc.exe -g3 -Wall ${file} -o ${fileDirname}\\${fileBasenameNoExtension}.exe ;${fileDirname}\\${fileBasenameNoExtension}.exe",
             "options": {
                 "cwd": "C:\\MSYS2\\mingw64\\bin"
+=======
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe arquivo de build ativo",
+            "command": "C:\\MSYS2\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+>>>>>>> b6bc7ba091d0dbc78c60d062a4b0cf2f6e29562d
             },
             "problemMatcher": [
                 "$gcc"
             ],
+<<<<<<< HEAD
             "detail": "compilador: C:\\MSYS2\\mingw64\\bin\\gcc.exe"
         },
 
+=======
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarefa gerada pelo Depurador."
+        }
+>>>>>>> b6bc7ba091d0dbc78c60d062a4b0cf2f6e29562d
     ],
     "version": "2.0.0"
 }
