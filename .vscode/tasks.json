@@ -1,0 +1,18 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Run this C Program",
+            "command": "C:\\MSYS2\\mingw64\\bin\\gcc.exe -g3 -Wall ${file} -o ${fileDirname}\\${fileBasenameNoExtension}.exe ;${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "options": {
+                "cwd": "C:\\MSYS2\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "compilador: C:\\MSYS2\\mingw64\\bin\\gcc.exe"
+        },
+
+    ],
+    "version": "2.0.0"
+}
